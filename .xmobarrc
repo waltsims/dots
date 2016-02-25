@@ -15,10 +15,8 @@ Config { alignSep = "}{",
                                   "--High", "85", "--high", "#cf6a4c"]
                                  10,
                       Run Date "%d.%m.%Y %H:%M" "datetime" 600,
-                      Run Network "epn0s3" ["-t", "<dev>"] 10,
-                      Run Wireless "wlp1fos0" ["-t", "<essid>"] 10,
                       Run Kbd [],
                       Run StdinReader
                     ],
-         template = "%StdinReader% } %datetime% { %kbd% <fc=#5f5a60>/</fc> %multicpu% <fc=#5f5a60>/</fc> %memory% <fc=#5f5a60>/</fc> %battery% <fc=#5f5a60>/</fc> %enp0s3% %wlp1s0wi%"
+         template = "%StdinReader% } %datetime% { %kbd% <fc=#5f5a60>/</fc> %multicpu% <fc=#5f5a60>/</fc> %memory% <fc=#5f5a60>/</fc> %battery% <fc=#5f5a60></fc>"
        }
