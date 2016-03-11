@@ -32,3 +32,4 @@ export PETSC_ARCH=arch-linux2-c-debug
 
 alias supermuc='bash ~/Desktop/POS.sh'
 alias cluster='bash ~/Desktop/tfs.sh'
+alias octave='octave --no-gui'

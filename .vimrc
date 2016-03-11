@@ -42,7 +42,7 @@ Plugin 'terryma/vim-multiple-cursors'
 "Latex PDF Preview
 Plugin 'xuhdev/vim-latex-live-preview'
 "Latex plugin
-"Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin	'lervag/vimtex'
 " plugin from http://vim-scripts.org/vim/scripts.html
 "Plugin 'L9'
 " Git plugin not hosted on GitHub
