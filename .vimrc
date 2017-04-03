@@ -21,14 +21,10 @@ Plugin 'raimondi/delimitmate'
 Plugin 'luochen1990/rainbow'
 "Syntax checker
 Plugin 'scrooloose/syntastic'
-" plugin for file drawer
-Plugin 'scrooloose/nerdtree'
 "contorlP Fuzzy File finder
 Plugin 'kien/ctrlp.vim.git'
 " Tags browser from source code files
 Plugin 'majutsushi/tagbar'
-" Vim Airline--cool status bar
-Plugin 'bling/vim-airline'
 " EasyMotion recomended by Marten
 Plugin 'easymotion/vim-easymotion'
 "autopep8 formater for python
@@ -39,21 +35,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdcommenter'
 "multi-line highlighting
 Plugin 'terryma/vim-multiple-cursors'
-"Latex PDF Preview
-Plugin 'xuhdev/vim-latex-live-preview'
 "Latex plugin
 Plugin	'lervag/vimtex'
-" plugin from http://vim-scripts.org/vim/scripts.html
-"Plugin 'L9'
-" Git plugin not hosted on GitHub
-"Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-"Plugin 'user/L9', {'name': 'newL9'}
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -75,8 +58,8 @@ set nocompatible
 set number
 let name="Walter Simson"
 set nowrap
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set showmatch
 set relativenumber
 set number
@@ -88,8 +71,6 @@ set title
 set laststatus=2
 syntax on 
 set t_Co=256
-colorscheme molokai
-let g:molokai_original = 1
 "auto open NERDTree
 "ctr-p
 let mapleader=" "
@@ -102,30 +83,6 @@ let g:syntastic_cpp_check_header = 1
 "airline config
 set guifont=Liberation\ Mono\ for\ Powerline\ 10
 let g:airline_powerline_fonts = 1
-"syntastic config
-""let g:syntastic_c_checkers=['make','splint']
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-""let g:syntastic_c++_clang_exec = 'usr/bin/clang'
-""let g:syntastic_cpp_compiler = 'g++'
-""let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
-""let g:syntastic_check_on_open=1
-""let g:syntastic_enable_signs=1
-"let g:syntastic_cpp_check_header = 1
-""let g:syntastic_cpp_auto_refresh_includes = 1
-""let g:syntastic_cpp_clang_check_post_args = ""
-"for latex-box
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""`
-""""""""""""""""""""""""""LATEX STUFF""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:livepreview_previewer = 'evince'
-autocmd FileType tex map <leader>s:LLPStartPreview<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""`
 """"""""""""""""""""""""""FORMATING""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -137,7 +94,7 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 "replace escape with jj
-inoremap jj <esc>
+inoremap jk <esc>
 "better split
 "better collons
 noremap , : 
