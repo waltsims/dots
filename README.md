@@ -1,7 +1,7 @@
-#Dotfiles
+# Dotfiles
 
 currently a small collection of my dotfiles for public consumption.
 
-##TODO
+## TODO
 
 hopefully more deployment automation to come
