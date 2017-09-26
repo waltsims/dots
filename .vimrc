@@ -45,6 +45,7 @@ Plugin 'scrooloose/nerdcommenter'
 "multi-line highlighting
 Plugin 'terryma/vim-multiple-cursors'
 "Latex plugin
+Plugin 'vim-latex/vim-latex'
 Plugin	'lervag/vimtex'
 "Latex Live-preview
 Plugin 'xuhdev/vim-latex-live-preview'
@@ -147,7 +148,7 @@ autocmd FileType python set tabstop=2
 autocmd FileType python set softtabstop=2
 
 "vimlatex-suit
-helptags ~/.vim/bundle/vim-latex-1.9.0/doc     
+helptags ~/.vim/bundle/vim-latex/doc     
 " REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
 filetype plugin on
 

@@ -1,7 +1,6 @@
 #!/bin/bash
 
 #TODO get -u opt for uninstall/clean up
-#TODO install vim packages
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 echo $DIR
