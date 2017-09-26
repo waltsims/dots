@@ -13,6 +13,21 @@ git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.v
 # install all plugins
 vim +VundleInstall +qall
 
+# Install dependencies and Compile YCM
+unameOut="$(uname -s)"
+case ${unameOut} in
+	Linux*)	
+		sudo apt-get install build-essential cmake;
+		sudo apt-get install python-dev python3-dev;
+		echo "installing on Ubuntu machine";;
+	Darwin*)	
+		echo "installing on Macintosh machine";;
+esac
+
+cd ~/.vim/bundle/YouCompleteMe
+./install.py --clang-completer
+		
+
 for dotfile in "$DIR"/"."*
 do
   if [ -f $dotfile ]; then
