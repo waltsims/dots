@@ -17,6 +17,7 @@ vim +VundleInstall +qall
 unameOut="$(uname -s)"
 case ${unameOut} in
 	Linux*)	
+		echo "enter password to install cmake and python"
 		sudo apt-get install build-essential cmake;
 		sudo apt-get install python-dev python3-dev;
 		echo "installing on Ubuntu machine";;
