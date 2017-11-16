@@ -1,62 +1,44 @@
-filetype off
-
 set nocompatible              " be iMproved, required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
- 
+call plug#begin('~/.vim/plugged')
 " tmux/vim compatability plugin
-Plugin 'christoomey/vim-tmux-navigator'
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-fugitive'
 " ColorSchemes
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'hzchirs/vim-material'
-Plugin 'zcodes/vim-colors-basic'
+Plug 'altercation/vim-colors-solarized'
+Plug 'hzchirs/vim-material'
+Plug 'zcodes/vim-colors-basic'
 "Delimate
-Plugin 'raimondi/delimitmate'
+Plug 'raimondi/delimitmate'
 "rainbow parens
-Plugin 'luochen1990/rainbow'
+Plug 'luochen1990/rainbow'
 "Syntax checker
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 "contorlP Fuzzy File finder
-Plugin 'kien/ctrlp.vim.git'
+Plug 'ctrlpvim/ctrlp.vim'
 " Tags browser from source code files
-Plugin 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 " EasyMotion recomended by Marten
-Plugin 'easymotion/vim-easymotion'
-"autopep8 formater for python
-Plugin 'tell-k/vim-autopep8'
+Plug 'easymotion/vim-easymotion'
 "automatic completion Plugin
-Plugin 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
+"nerd commenter
+Plug 'scrooloose/nerdcommenter'
+"multi-line highlighting
+Plug 'terryma/vim-multiple-cursors'
+"Latex plugin
+Plug 'vim-latex/vim-latex'
+Plug 'lervag/vimtex'
+"Latex Live-preview
+Plug 'xuhdev/vim-latex-live-preview'
+" Snippits for Python
+"  Track the engine.
+Plug 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
+call plug#end()
 
 let g:ycm_python_binary_path = 'python'
-"nerd commenter
-Plugin 'scrooloose/nerdcommenter'
-"multi-line highlighting
-Plugin 'terryma/vim-multiple-cursors'
-"Latex plugin
-Plugin 'vim-latex/vim-latex'
-Plugin	'lervag/vimtex'
-"Latex Live-preview
-Plugin 'xuhdev/vim-latex-live-preview'
-" Snippits for Python
-
-"  Track the engine.
-Plugin 'SirVer/ultisnips'
-
-" Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
-
 " Trigger configuration. 
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -65,8 +47,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
 "Colorscheme
 
 set t_Co=256
@@ -74,25 +54,13 @@ syntax on
 colorscheme basic-dark
 
 
-"filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 "ctags global and local
+filetype plugin indent on
 set tags=./tags,tags,~/.commontags
 set nocompatible
 set number
 let name="Walter Simson"
-set nowrap
-set tabstop=2
-set shiftwidth=2
+"set nowrap
 set showmatch
 set relativenumber
 set number
@@ -102,7 +70,14 @@ highlight ColorColumn ctermbg=cyan
 set colorcolumn=80
 set title
 set laststatus=2
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
 "auto open NERDTree
+
 "ctr-p
 let mapleader=" "
 nnoremap <leader>. :CtrlPTag<cr>
@@ -135,6 +110,11 @@ noremap <LEADER>v :vsp
 "better splits
 noremap <LEADER>s :sp 
 
+if exists('+breakindent')
+  set breakindent
+  set showbreak=..  " comment so that the whitespace works >.>
+endif
+
 "set rainbow on
 let g:rainbow_active=1
 "bracket highlighting fix
@@ -147,10 +127,11 @@ autocmd FileType python set shiftwidth=2
 autocmd FileType python set tabstop=2
 autocmd FileType python set softtabstop=2
 
-"vimlatex-suit
+set splitright "open vertical splits on RHS
+
+"vimlatex-suita
 helptags ~/.vim/bundle/vim-latex/doc     
-" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
-filetype plugin on
+
 
 " IMPORTANT: win32 users will need to have 'shellslash' set so that latex
 " can be called correctly.
@@ -169,5 +150,10 @@ filetype indent on
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
 
+
 map <F2> :set spell spelllang=en_us<CR>
-let g:livepreview_previewer = 'open -a Preview'
+let g:vimtex_view_general_viewer = '/Applications/Skim.app/Contents/SharedSupport/displayline'
+let g:vimtex_view_general_options = '-r @line @pdf @tex'
+let g:vimtex_view_general_options_latexmk = '-r 1'
+let g:livepreview_previewer = 'open -a /Applications/Skim.app/Contents/SharedSupport/displayline'
+nnoremap <leader>p :LLPStartPreview

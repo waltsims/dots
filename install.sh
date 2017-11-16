@@ -11,7 +11,7 @@ echo $HOME
 git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 
 # install all plugins
-vim +VundleInstall +qall
+vim +PlugInstall +qall
 
 # Install dependencies and Compile YCM
 unameOut="$(uname -s)"
