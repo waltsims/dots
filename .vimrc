@@ -1,6 +1,6 @@
 set nocompatible              " be iMproved, required
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/bundle')
 " tmux/vim compatability plugin
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-fugitive'
@@ -13,7 +13,7 @@ Plug 'raimondi/delimitmate'
 "rainbow parens
 Plug 'luochen1990/rainbow'
 "Syntax checker
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 "contorlP Fuzzy File finder
 Plug 'ctrlpvim/ctrlp.vim'
 " Tags browser from source code files
