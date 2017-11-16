@@ -7,8 +7,9 @@ echo $DIR
 echo $HOME
 
 
-#install vundle
-git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+#install vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # install all plugins
 vim +PlugInstall +qall
