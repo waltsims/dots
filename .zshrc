@@ -6,7 +6,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle git
 antigen bundle tmux
 
-antigen theme crunch
+antigen theme subnixr/minimal
 
 ZSH_THEME="robbyrussel"
 DEFAULT_USER="chip"

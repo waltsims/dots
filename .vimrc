@@ -1,5 +1,3 @@
-set nocompatible              " be iMproved, required
-
 call plug#begin('~/.vim/bundle')
 " tmux/vim compatability plugin
 Plug 'christoomey/vim-tmux-navigator'
@@ -40,12 +38,12 @@ call plug#end()
 
 let g:ycm_python_binary_path = 'python'
 " Trigger configuration. 
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsExpandTrigger='<c-j>'
+let g:UltiSnipsJumpForwardTrigger='<c-b>'
+let g:UltiSnipsJumpBackwardTrigger='<c-z>'
 
 " If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsEditSplit='vertical'
 
 "Colorscheme
 
@@ -57,9 +55,8 @@ colorscheme basic-dark
 "ctags global and local
 filetype plugin indent on
 set tags=./tags,tags,~/.commontags
-set nocompatible
 set number
-let name="Walter Simson"
+let g:name='Walter Simson'
 "set nowrap
 set showmatch
 set relativenumber
@@ -79,13 +76,11 @@ set expandtab
 "auto open NERDTree
 
 "ctr-p
-let mapleader=" "
+let g:mapleader=' '
 nnoremap <leader>. :CtrlPTag<cr>
 "autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR>
-"syntastic conifg
-let g:syntastic_cpp_check_header = 1
 "airline config
 set guifont=Liberation\ Mono\ for\ Powerline\ 10
 let g:airline_powerline_fonts = 1
@@ -93,8 +88,6 @@ let g:airline_theme='material'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""`
 """"""""""""""""""""""""""FORMATING""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"yapf
-autocmd FileType python nnoremap <leader>f :0,$!yapf<Cr>
 "hard mode
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -123,9 +116,13 @@ let g:rainbow_conf = {'itermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lig
 "task lists remap
 noremap <Leader>t :noautocmd vimgrep /TODO/j **/*.cpp<CR>:cw<CR>
 "Python config
-autocmd FileType python set shiftwidth=2
-autocmd FileType python set tabstop=2
-autocmd FileType python set softtabstop=2
+augroup python
+  "yapf
+  autocmd FileType python nnoremap <leader>f :0,$!yapf<Cr>
+  autocmd FileType python set shiftwidth=2
+  autocmd FileType python set tabstop=2
+  autocmd FileType python set softtabstop=2
+augroup END
 
 set splitright "open vertical splits on RHS
 
