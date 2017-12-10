@@ -148,6 +148,4 @@ let g:tex_flavor='latex'
 
 
 map <F2> :set spell spelllang=en_us<CR>
-let g:latex_view_general_viewer = 'zathura'
 let g:vimtex_view_method = 'zathura'
-nnoremap <leader>p :LLPStartPreview<Cr>
