@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/bundle')
 " tmux/vim compatability plugin
 Plug 'christoomey/vim-tmux-navigator'
+" git tools that I don't use
 Plug 'tpope/vim-fugitive'
 " ColorSchemes
 Plug 'altercation/vim-colors-solarized'
@@ -12,6 +13,8 @@ Plug 'raimondi/delimitmate'
 Plug 'luochen1990/rainbow'
 "Syntax checker
 Plug 'w0rp/ale'
+"Gutentags for auto ctag generation
+Plug 'ludovicchabant/vim-gutentags'
 "contorlP Fuzzy File finder
 Plug 'ctrlpvim/ctrlp.vim'
 " Tags browser from source code files
@@ -25,10 +28,7 @@ Plug 'scrooloose/nerdcommenter'
 "multi-line highlighting
 Plug 'terryma/vim-multiple-cursors'
 "Latex plugin
-Plug 'vim-latex/vim-latex'
 Plug 'lervag/vimtex'
-"Latex Live-preview
-Plug 'xuhdev/vim-latex-live-preview'
 " Snippits for Python
 "  Track the engine.
 Plug 'SirVer/ultisnips'
@@ -37,10 +37,12 @@ Plug 'honza/vim-snippets'
 call plug#end()
 
 let g:ycm_python_binary_path = 'python'
+
 " Trigger configuration. 
 let g:UltiSnipsExpandTrigger='<c-j>'
 let g:UltiSnipsJumpForwardTrigger='<c-b>'
 let g:UltiSnipsJumpBackwardTrigger='<c-z>'
+let g:UltiSnipsSnippetDir='~/.vim/UltiSnips'
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit='vertical'
@@ -119,15 +121,13 @@ noremap <Leader>t :noautocmd vimgrep /TODO/j **/*.cpp<CR>:cw<CR>
 augroup python
   "yapf
   autocmd FileType python nnoremap <leader>f :0,$!yapf<Cr>
-  autocmd FileType python set shiftwidth=2
-  autocmd FileType python set tabstop=2
-  autocmd FileType python set softtabstop=2
+  autocmd FileType python set shiftwidth=4
+  autocmd FileType python set tabstop=4
+  autocmd FileType python set softtabstop=4
+  autocmd FileType python set expandtab
 augroup END
 
 set splitright "open vertical splits on RHS
-
-"vimlatex-suita
-helptags ~/.vim/bundle/vim-latex/doc     
 
 
 " IMPORTANT: win32 users will need to have 'shellslash' set so that latex
@@ -149,8 +149,6 @@ let g:tex_flavor='latex'
 
 
 map <F2> :set spell spelllang=en_us<CR>
-let g:vimtex_view_general_viewer = '/Applications/Skim.app/Contents/SharedSupport/displayline'
-let g:vimtex_view_general_options = '-r @line @pdf @tex'
-let g:vimtex_view_general_options_latexmk = '-r 1'
-let g:livepreview_previewer = 'open -a /Applications/Skim.app/Contents/SharedSupport/displayline'
-nnoremap <leader>p :LLPStartPreview
+let g:latex_view_general_viewer = 'zathura'
+let g:vimtex_view_method = 'zathura'
+nnoremap <leader>p :LLPStartPreview<Cr>
