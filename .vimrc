@@ -30,7 +30,6 @@ Plug 'terryma/vim-multiple-cursors'
 "Latex plugin
 Plug 'lervag/vimtex'
 " Snippits for Python
-"  Track the engine.
 Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
