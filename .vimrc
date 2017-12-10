@@ -19,7 +19,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'ctrlpvim/ctrlp.vim'
 " Tags browser from source code files
 Plug 'majutsushi/tagbar'
-" EasyMotion recomended by Marten
+" EasyMotion recomended by Marten @cqql
 Plug 'easymotion/vim-easymotion'
 "automatic completion Plugin
 Plug 'Valloric/YouCompleteMe'
@@ -82,10 +82,6 @@ nnoremap <leader>. :CtrlPTag<cr>
 "autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR>
-"airline config
-set guifont=Liberation\ Mono\ for\ Powerline\ 10
-let g:airline_powerline_fonts = 1
-let g:airline_theme='material'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""`
 """"""""""""""""""""""""""FORMATING""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
