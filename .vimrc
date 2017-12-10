@@ -94,7 +94,7 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-"replace escape with jj
+"replace escape with jk
 inoremap jk <esc>
 "better split
 "better collons
