@@ -1,5 +1,5 @@
-source /usr/local/share/antigen/antigen.zsh
-export ZSH=/Users/waltersimson/.oh-my-zsh
+source $HOME/git/antigen/antigen.zsh
+export ZSH=$HOME/.oh-my-zsh
 
 antigen use oh-my-zsh
 antigen bundle zsh-users/zsh-syntax-highlighting

@@ -18,11 +18,17 @@ case ${unameOut} in
 		echo "installing on Macintosh machine";;
 esac
 
-#install vim-plug
+# Install vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# install all plugins
+# Install antigen
+GIT="$HOME/git"
+mkdir -p GIT
+git clone https://github.com/zsh-users/antigen.git $GIT
+
+
+# Install all plugins
 vim +PlugInstall +qall
 
 cd ~/.vim/bundle/YouCompleteMe
