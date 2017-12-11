@@ -7,6 +7,17 @@ echo $DIR
 echo $HOME
 
 
+# Install dependencies and Compile YCM
+unameOut="$(uname -s)"
+case ${unameOut} in
+	Linux*)	
+		echo "installing on Ubuntu machine";
+		echo "enter password to install cmake and python";
+		sudo apt-get install vim tmux exuberant-ctags zsh git bash-completion python-dev python3-dev build-essential cmake;;
+	Darwin*)	
+		echo "installing on Macintosh machine";;
+esac
+
 #install vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -14,23 +25,11 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 # install all plugins
 vim +PlugInstall +qall
 
-# Install dependencies and Compile YCM
-unameOut="$(uname -s)"
-case ${unameOut} in
-	Linux*)	
-		echo "enter password to install cmake and python"
-		sudo apt-get install build-essential cmake;
-		sudo apt-get install python-dev python3-dev;
-		echo "installing on Ubuntu machine";;
-	Darwin*)	
-		echo "installing on Macintosh machine";;
-esac
-
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
 		
 
-for dotfile in "$DIR"/"."*
+for dotfile in "$DIR"/home/"."*
 do
   if [ -f $dotfile ]; then
     if [ -f $HOME/$dotfile ]; then
@@ -38,17 +37,17 @@ do
 	mv $HOME/$dotfile $HOME/$dotfile.pre-chip
     fi
   echo "copying $dotfile..."
-  cp $DIR/$(basename $dotfile) $HOME/
+  cp $DIR/home/$(basename $dotfile) $HOME/
   fi
 done
 
-if [ -f $HOME/.bashrc ]; then
-	$DIR/ap.bash >> $HOME/.bashrc
-else 
-	if [ -f $HOME/.bash_profile ]; then
-	$DIR/ap.bash >> $HOME/.bash_profile 
-  fi
-fi
-#TODO append bashrc w/ ap.bash
+ # Append bashrc w/ ap.bash
+ if [ -f $HOME/.bashrc ]; then
+     cat $DIR/ap.bash >> $HOME/.bashrc
+ else 
+ 	if [ -f $HOME/.bash_profile ]; then
+ 	cat $DIR/ap.bash >> $HOME/.bash_profile 
+   fi
+ fi
 
 
