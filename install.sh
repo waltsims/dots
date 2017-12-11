@@ -13,7 +13,7 @@ case ${unameOut} in
 	Linux*)	
 		echo "installing on Ubuntu machine";
 		echo "enter password to install cmake and python";
-		sudo apt-get install vim tmux exuberant-ctags zsh git bash-completion python-dev python3-dev build-essential cmake;;
+		sudo apt-get install vim tmux exuberant-ctags zsh git python-dev python3-dev build-essential cmake;;
 	Darwin*)	
 		echo "installing on Macintosh machine";;
 esac

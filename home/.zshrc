@@ -11,5 +11,7 @@ antigen theme subnixr/minimal
 ZSH_THEME="robbyrussel"
 DEFAULT_USER="chip"
 
+. ~/.aliases
+
 antigen apply
 
