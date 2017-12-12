@@ -1,8 +1,10 @@
 # Shamelessly sourced from Marten @cqql
 alias s="sudo"
 
-alias ag="apg-get"
-alias agi="apt-get install"
+alias sa="sudo apt-get"
+alias sai="sudo apt-get install"
+alias sau="sudo apt-get update"
+alias saU="sudo apt-get upgrade"
 
 alias p="pacman"
 alias sp="sudo pacman"
