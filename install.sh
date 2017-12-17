@@ -1,7 +1,8 @@
 #!/bin/bash
 
-#TODO get -u opt for uninstall/clean up
+# TODO get -u opt for uninstall/clean up
 
+# TODO:  install linters as well <12-17-17, walter> #
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 echo $DIR
 echo $HOME
