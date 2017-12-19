@@ -10,7 +10,11 @@ alias p="pacman"
 alias sp="sudo pacman"
 alias spu="sudo pacman -Syu"
 
-# Aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Git aliases
 alias g="git"
 
 alias gst="git status"
