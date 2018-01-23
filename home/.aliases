@@ -17,17 +17,20 @@ alias l='ls -CF'
 # Git aliases
 alias g="git"
 
-alias gst="git status"
+alias gst="git status -v"
 
-alias ga="git add"
+alias ga="git add -v"
+alias gaa="git add -v -a"
 
-alias gb="git branch"
+alias gb="git branch -v"
+alias gba='git branch -v -a'
+alias gbd='git branch -d'
 
 alias gco="git checkout"
 
-alias gc="git commit"
+alias gc="git commit -v"
 alias gcm="git commit -m"
-alias gca="git commit --amend"
+alias gca="git commit -v --amend"
 
 alias gd="git diff"
 alias gdc="git diff --cached"

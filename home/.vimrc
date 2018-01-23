@@ -7,6 +7,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'altercation/vim-colors-solarized'
 Plug 'hzchirs/vim-material'
 Plug 'zcodes/vim-colors-basic'
+Plug 'chriskempson/base16-vim'
 "Delimate
 Plug 'raimondi/delimitmate'
 "rainbow parens
@@ -49,9 +50,10 @@ let g:UltiSnipsEditSplit='vertical'
 
 "Colorscheme
 
+let basic16colorspace=256
 set t_Co=256
 syntax on
-colorscheme basic-dark
+"colorscheme basic-dark
 
 
 "ctags global and local
