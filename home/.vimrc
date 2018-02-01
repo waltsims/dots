@@ -34,6 +34,8 @@ Plug 'lervag/vimtex'
 Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
+" vim-yapf
+" Plug 'mindriot101/vim-yapf'
 call plug#end()
 
 let g:ycm_python_binary_path = 'python'
@@ -44,17 +46,19 @@ let g:UltiSnipsJumpForwardTrigger='<c-b>'
 let g:UltiSnipsJumpBackwardTrigger='<c-z>'
 let g:UltiSnipsSnippetDir='~/.vim/UltiSnips'
 let g:snips_author='Walter Simson'
+let g:snips_email='walter.simson@tum.de'
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit='vertical'
+let g:ultisnips_python_style='google'
 
 "Colorscheme
 
-let basic16colorspace=256
-set t_Co=256
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 syntax on
-"colorscheme basic-dark
-
 
 "ctags global and local
 filetype plugin indent on
@@ -118,7 +122,7 @@ noremap <Leader>t :noautocmd vimgrep /TODO/j **/*.cpp<CR>:cw<CR>
 "Python config
 augroup python
   "yapf
-  autocmd FileType python nnoremap <leader>f :0,$!yapf<Cr>
+  autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr><C-o>
   autocmd FileType python set shiftwidth=4
   autocmd FileType python set tabstop=4
   autocmd FileType python set softtabstop=4
@@ -148,3 +152,4 @@ let g:tex_flavor='latex'
 
 map <F2> :set spell spelllang=en_us<CR>
 let g:vimtex_view_method = 'zathura'
+
