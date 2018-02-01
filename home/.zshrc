@@ -4,6 +4,8 @@ source $HOME/git/antigen/antigen.zsh
 antigen use oh-my-zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle tmux
+antigen theme subnixr/minimal
+
 
 . ~/.aliases
 
