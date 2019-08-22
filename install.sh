@@ -31,7 +31,7 @@ mkdir -p GIT
 vim +PlugInstall +qall
 
 cd ~/.vim/bundle/YouCompleteMe
-./install.py --clang-completer
+python3 install.py 
 		
 
 for dotfile in "$DIR"/home/"."*
