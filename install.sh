@@ -14,7 +14,7 @@ case ${unameOut} in
 	Linux*)	
 		echo "installing on Ubuntu machine";
 		echo "enter password to install cmake and python";
-		sudo apt-get install vim tmux exuberant-ctags zsh git python-dev python3-dev build-essential cmake;;
+		sudo apt-get install vim tmux exuberant-ctags zsh git python3-dev build-essential cmake;;
 	Darwin*)	
 		echo "installing on Macintosh machine";;
 esac
@@ -26,8 +26,6 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 # Install antigen
 GIT="$HOME/git"
 mkdir -p GIT
-git clone https://github.com/zsh-users/antigen.git $GIT
-
 
 # Install all plugins
 vim +PlugInstall +qall
@@ -43,8 +41,8 @@ do
         #make backup
 	mv $HOME/$dotfile $HOME/$dotfile.pre-chip
     fi
-  echo "copying $dotfile..."
-  cp $DIR/home/$(basename $dotfile) $HOME/
+  echo "linking $dotfile..."
+  ln -s $DIR/home/$(basename $dotfile) $HOME/
   fi
 done
 
