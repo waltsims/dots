@@ -13,7 +13,7 @@ Plug 'raimondi/delimitmate'
 "rainbow parens
 Plug 'luochen1990/rainbow'
 "Syntax checker
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 "Gutentags for auto ctag generation
 Plug 'ludovicchabant/vim-gutentags'
 "contorlP Fuzzy File finder
@@ -97,8 +97,6 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-"replace escape with jk
-inoremap jk <esc>
 "better split
 "better collons
 noremap , : 
@@ -106,6 +104,11 @@ noremap , :
 noremap <LEADER>v :vsp 
 "better splits
 noremap <LEADER>s :sp 
+
+" Re-open window at last position
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+endif
 
 if exists('+breakindent')
   set breakindent
@@ -118,7 +121,6 @@ let g:rainbow_active=1
 :hi MatchParen cterm=bold ctermbg=none ctermfg=none
 let g:rainbow_conf = {'itermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta']}
 "task lists remap
-noremap <Leader>t :noautocmd vimgrep /TODO/j **/*.cpp<CR>:cw<CR>
 "Python config
 augroup python
   "yapf
