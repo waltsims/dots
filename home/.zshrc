@@ -10,6 +10,9 @@ export ZSH="/home/walter/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
+# BUG fix from https://git.io/JenXp
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=6"
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -68,8 +71,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git
-	zsh-autosuggestions)
+plugins=(git zsh-autosuggestions zsh-z)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -99,21 +101,14 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
-
-
-
-
 if [  ]; then source <(kubectl completion zsh); fi
 
-# aliases 
-alias python=python3
-alias k=kubectl
-alias kd="kubectl describe"
-alias -g kg="kubectl get"
-alias -g np="-n polyaxon"
-alias w=watch
-alias s=sudo
+export EDITOR=vim
+export VISUAL=vim
+
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
+fi
 
 # PATH additions
 if [ -d "/opt/pycharm-2019.1.3/bin" ] ; then
@@ -129,3 +124,17 @@ if [ -d "/usr/local/MATLAB/R2019a/bin" ] ; then
     export PATH="/usr/local/MATLAB/R2019a/bin:$PATH"
 fi
 
+#compdef polyaxon
+_polyaxon() {
+  eval $(env COMMANDLINE="${words[1,$CURRENT]}" _POLYAXON_COMPLETE=complete-zsh  polyaxon)
+}
+if [[ "$(basename -- ${(%):-%x})" != "_polyaxon" ]]; then
+  compdef _polyaxon polyaxon
+fi
+#compdef polyaxon
+_polyaxon() {
+  eval $(env COMMANDLINE="${words[1,$CURRENT]}" _POLYAXON_COMPLETE=complete-zsh  polyaxon)
+}
+if [[ "$(basename -- ${(%):-%x})" != "_polyaxon" ]]; then
+  compdef _polyaxon polyaxon
+fi

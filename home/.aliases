@@ -1,4 +1,5 @@
 # Shamelessly sourced from Marten @cqql
+alias w="watch"
 alias s="sudo"
 
 alias sa="sudo apt-get"
@@ -62,3 +63,15 @@ alias grba="git rebase --abort"
 alias grbs="git rebase --skip"
 
 alias mv='mv -i'
+
+alias fd='fdfind'
+
+alias python=python3
+
+alias k="kubectl"
+alias kd="kubectl describe"
+alias -g kg="kubectl get"
+alias -g np="-n polyaxon"
+alias -g np="-n polyaxon-dev"
+
+
