@@ -30,6 +30,9 @@ mkdir -p GIT
 # Install all plugins
 vim +PlugInstall +qall
 
+# Install ohmyzsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 cd ~/.vim/bundle/YouCompleteMe
 python3 install.py 
 		
