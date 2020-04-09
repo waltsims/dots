@@ -70,8 +70,11 @@ alias python=python3
 
 alias k="kubectl"
 alias kd="kubectl describe"
-alias -g kg="kubectl get"
-alias -g np="-n polyaxon"
-alias -g np="-n polyaxon-dev"
 
+if [[ $0 != -bash ]]
+then
+    alias -g kg="kubectl get"
+    alias -g np="-n polyaxon"
+    alias -g np="-n polyaxon-dev"
+fi
 

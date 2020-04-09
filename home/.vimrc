@@ -131,6 +131,9 @@ augroup python
   autocmd FileType python set expandtab
 augroup END
 
+" Makefile tabs
+autocmd FileType make setlocal noexpandtab
+
 set splitright "open vertical splits on RHS
 
 
