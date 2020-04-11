@@ -4,8 +4,8 @@
 
 # TODO:  install linters as well <12-17-17, walter> #
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-echo $DIR
-echo $HOME
+echo "$DIR"
+echo "$HOME"
 
 
 # Install dependencies and Compile YCM
@@ -25,7 +25,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 # Install antigen
 GIT="$HOME/git"
-mkdir -p GIT
+mkdir -p "$GIT"
 
 # Install all plugins
 vim +PlugInstall +qall
@@ -33,19 +33,16 @@ vim +PlugInstall +qall
 # Install ohmyzsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-cd ~/.vim/bundle/YouCompleteMe
-python3 install.py 
-		
 
 for dotfile in "$DIR"/home/"."*
 do
-  if [ -f $dotfile ]; then
-    if [ -f $HOME/$dotfile ]; then
+  if [ -f "$dotfile" ]; then
+    if [ -f $HOME/"$dotfile" ]; then
         #make backup
-	mv $HOME/$dotfile $HOME/$dotfile.pre-chip
+	mv ${HOME}/"$dotfile" $HOME/"$dotfile".pre-chip
     fi
-  echo "linking $dotfile..."
-  ln -s $DIR/home/$(basename $dotfile) $HOME/
+  echo "linking '$dotfile'..."
+  ln -s $DIR/home/$(basename "$dotfile") $HOME/
   fi
 done
 

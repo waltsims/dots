@@ -76,7 +76,7 @@ Plug 'majutsushi/tagbar'
 " EasyMotion 
 Plug 'easymotion/vim-easymotion'
 " YouCompleteMe
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 "nerd commenter
 Plug 'scrooloose/nerdcommenter'
 "multi-line highlighting
@@ -86,7 +86,7 @@ Plug 'lervag/vimtex'
 " Snippits for Python
 Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
-Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets', { 'dir': '~/.vim/snippets' }
 " vim-yapf
 " Plug 'mindriot101/vim-yapf'
 call plug#end()
