@@ -1,3 +1,56 @@
+""" General
+
+let g:name='Walter Simson'
+let g:mapleader=','
+set showmatch
+set relativenumber
+set number
+set hlsearch
+set incsearch
+
+set title
+set laststatus=2
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
+
+
+" Better collons
+noremap <leader> : 
+
+" Better vsplits
+noremap <leader>v :vsp 
+" Better splits
+noremap <leader>s :sp 
+
+" Hard mode
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+" Re-open window at last position
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+endif
+
+
+
+""" Color Scheme
+
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+syntax on
+
+
+
+"""" Plugings
+
 call plug#begin('~/.vim/bundle')
 " tmux/vim compatability plugin
 Plug 'christoomey/vim-tmux-navigator'
@@ -38,90 +91,47 @@ Plug 'honza/vim-snippets'
 " Plug 'mindriot101/vim-yapf'
 call plug#end()
 
+" YCM Config
 let g:ycm_python_binary_path = 'python'
+let g:ycm_key_list_previous_completion=['<c-p>']
+let g:ycm_key_list_next_completion=['<c-n>']
 
-" Trigger configuration. 
-let g:UltiSnipsExpandTrigger='<c-j>'
-let g:UltiSnipsJumpForwardTrigger='<c-b>'
-let g:UltiSnipsJumpBackwardTrigger='<c-z>'
-let g:UltiSnipsSnippetDir='~/.vim/UltiSnips'
+" Ultisnips Config
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:snips_author='Walter Simson'
 let g:snips_email='walter.simson@tum.de'
-
-" If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit='vertical'
 let g:ultisnips_python_style='google'
 
-"Colorscheme
+" Ctrl-P Config
+nnoremap <leader>. :CtrlPTag<cr>
 
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
-syntax on
-
-"ctags global and local
+" Ctags Config
 filetype plugin indent on
 set tags=./tags,tags,~/.commontags
-set number
-let g:name='Walter Simson'
-"set nowrap
-set showmatch
-set relativenumber
-set number
-set hlsearch
-set incsearch
-highlight ColorColumn ctermbg=cyan
-set colorcolumn=80
-set title
-set laststatus=2
-" show existing tab with 4 spaces width
-set tabstop=4
-" when indenting with '>', use 4 spaces width
-set shiftwidth=4
-" On pressing tab, insert 4 spaces
-set expandtab
-"auto open NERDTree
 
-"ctr-p
-let g:mapleader=' '
-nnoremap <leader>. :CtrlPTag<cr>
-"autocmd vimenter * NERDTree
-map <C-n> :NERDTreeToggle<CR>
-nmap <F8> :TagbarToggle<CR>
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""`
-""""""""""""""""""""""""""FORMATING""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"hard mode
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
-"better split
-"better collons
-noremap , : 
-"better vsplits
-noremap <LEADER>v :vsp 
-"better splits
-noremap <LEADER>s :sp 
-
-" Re-open window at last position
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-endif
-
-if exists('+breakindent')
-  set breakindent
-  set showbreak=..  " comment so that the whitespace works >.>
-endif
-
-"set rainbow on
+" Rainbow Parens Config
 let g:rainbow_active=1
-"bracket highlighting fix
-:hi MatchParen cterm=bold ctermbg=none ctermfg=none
 let g:rainbow_conf = {'itermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta']}
-"task lists remap
-"Python config
+:hi MatchParen cterm=bold ctermbg=none ctermfg=none
+
+
+"auto open NERDTree
+" map <leader>f :NERDTreeToggle<CR>
+
+
+""" File specific configs 
+
+" Makefiles
+
+" Only tabs
+autocmd FileType make setlocal noexpandtab
+
+
+" Python Files
+
 augroup python
   "yapf
   autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr><C-o>
@@ -131,8 +141,13 @@ augroup python
   autocmd FileType python set expandtab
 augroup END
 
-" Makefile tabs
-autocmd FileType make setlocal noexpandtab
+
+" Latex Files
+
+if exists('+breakindent')
+  set breakindent
+  set showbreak=..  " comment so that the whitespace works >.>
+endif
 
 set splitright "open vertical splits on RHS
 
