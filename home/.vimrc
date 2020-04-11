@@ -1,7 +1,7 @@
 """ General
 
 let g:name='Walter Simson'
-let g:mapleader=','
+let g:mapleader=' '
 set showmatch
 set relativenumber
 set number
@@ -19,7 +19,7 @@ set expandtab
 
 
 " Better collons
-noremap <leader> : 
+noremap <leader>: 
 
 " Better vsplits
 noremap <leader>v :vsp 
@@ -73,9 +73,9 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'ctrlpvim/ctrlp.vim'
 " Tags browser from source code files
 Plug 'majutsushi/tagbar'
-" EasyMotion recomended by Marten @cqql
+" EasyMotion 
 Plug 'easymotion/vim-easymotion'
-"automatic completion Plugin
+" YouCompleteMe
 Plug 'Valloric/YouCompleteMe'
 "nerd commenter
 Plug 'scrooloose/nerdcommenter'
