@@ -19,7 +19,7 @@ set expandtab
 
 
 " Better collons
-noremap <leader>: 
+noremap <leader> : 
 
 " Better vsplits
 noremap <leader>v :vsp 
