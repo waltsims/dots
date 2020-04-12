@@ -86,7 +86,7 @@ Plug 'lervag/vimtex'
 " Snippits for Python
 Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
-Plug 'honza/vim-snippets', { 'dir': '~/.vim/snippets' }
+Plug 'honza/vim-snippets'
 " vim-yapf
 " Plug 'mindriot101/vim-yapf'
 call plug#end()
@@ -104,6 +104,7 @@ let g:snips_author='Walter Simson'
 let g:snips_email='walter.simson@tum.de'
 let g:UltiSnipsEditSplit='vertical'
 let g:ultisnips_python_style='google'
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "~/.vim/bundle/vim-snippets"]
 
 " Ctrl-P Config
 nnoremap <leader>. :CtrlPTag<cr>
