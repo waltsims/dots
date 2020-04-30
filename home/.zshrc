@@ -138,3 +138,10 @@ _polyaxon() {
 if [[ "$(basename -- ${(%):-%x})" != "_polyaxon" ]]; then
   compdef _polyaxon polyaxon
 fi
+#compdef polyaxon
+_polyaxon() {
+  eval $(env COMMANDLINE="${words[1,$CURRENT]}" _POLYAXON_COMPLETE=complete-zsh  polyaxon)
+}
+if [[ "$(basename -- ${(%):-%x})" != "_polyaxon" ]]; then
+  compdef _polyaxon polyaxon
+fi
