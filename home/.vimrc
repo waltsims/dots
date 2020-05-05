@@ -1,5 +1,4 @@
 """ General
-
 let g:name='Walter Simson'
 let g:mapleader=' '
 set showmatch
@@ -37,18 +36,6 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
 
-
-
-""" Color Scheme
-
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
-syntax on
-
-
-
 """" Plugings
 
 call plug#begin('~/.vim/bundle')
@@ -57,10 +44,8 @@ Plug 'christoomey/vim-tmux-navigator'
 " git tools that I don't use
 Plug 'tpope/vim-fugitive'
 " ColorSchemes
-Plug 'altercation/vim-colors-solarized'
-Plug 'hzchirs/vim-material'
-Plug 'zcodes/vim-colors-basic'
-Plug 'chriskempson/base16-vim'
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
+colorscheme onehalfdark
 "Delimate
 Plug 'raimondi/delimitmate'
 "rainbow parens
@@ -89,8 +74,17 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 " vim-yapf
 " Plug 'mindriot101/vim-yapf'
+" Plug kj/
 call plug#end()
 
+""" Color Scheme
+syntax on
+
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 " YCM Config
 let g:ycm_python_binary_path = 'python'
 let g:ycm_key_list_previous_completion=['<c-p>']
