@@ -64,8 +64,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 "nerd commenter
 Plug 'scrooloose/nerdcommenter'
-"multi-line highlighting
-Plug 'terryma/vim-multiple-cursors'
 "Latex plugin
 Plug 'lervag/vimtex'
 " Snippits for Python
