@@ -3,7 +3,7 @@
 # Get directory of dots executable
 DOTS_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 DOTS_HOME="$DOTS_ROOT/home/"
-DOTS_BACKUP="/home/$USER/pre-chip/"
+DOTS_BACKUP="/home/$USER/.bakup_dots/"
 
 echo $DOTS_ROOT
 echo $DOTS_HOME
