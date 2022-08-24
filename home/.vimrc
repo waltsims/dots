@@ -41,6 +41,9 @@ endif
 call plug#begin('~/.vim/bundle')
 " tmux/vim compatability plugin
 Plug 'christoomey/vim-tmux-navigator'
+" Julia support
+Plug 'JuliaEditorSupport/julia-vim'
+Plug 'kdheepak/JuliaFormatter.vim'
 " git tools that I don't use
 Plug 'tpope/vim-fugitive'
 " ColorSchemes

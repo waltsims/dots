@@ -1,7 +1,0 @@
-#!/bin/bash
-#load Xresources
-xrdb -merge ~/.Xresources&
-#set baground image
-xloadimage -onroot -fullscreen ~/dotfiles/background.png&
-
-
